@@ -1,0 +1,157 @@
+@import "./index.scss";
+
+.messages-page-container {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: calc(100% - #{$static-menu-width} - 60px);
+  margin-left: 30px;
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.messages-page-title {
+  font-family: $title-font-family;
+  letter-spacing: 2px;
+}
+
+.messages-page-content {
+  height: calc(100% - 85px);
+  display: flex;
+  flex-direction: row;
+}
+
+.messages-page-menu-view {
+  width: 400px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+.messages-page-menu {
+  background-color: $static-menu-color;
+  width: 90%;
+  min-height: 30%;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.messages-page-menu-item {
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 1px 1px 1px 1px grey;
+  cursor: pointer;
+}
+
+.message-sender-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.message-sender-name {
+  font-family: $text-font-family;
+}
+
+.messages-page-menu-item-text {
+  font-family: $text-font-family;
+  font-size: 20px;
+  margin: 0;
+}
+
+.messages-page-form-view {
+  width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.messages-page-form-container {
+  background-color: $static-menu-color;
+  width: 50%;
+  height: 95%;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.message-view-header {
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sender-image-header {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.sender-name-header {
+  margin: 0;
+  font-size: 20px;
+  font-family: $text-font-family;
+}
+
+.sender-email-header {
+  margin: 0;
+}
+
+.messages-view {
+  height: 80%;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-y: scroll;
+}
+
+.piece-of-message {
+  margin: 0;
+  margin-left: 2px;
+  margin-bottom: 2px;
+  padding: 16px;
+  background-color: $static-menu-color;
+  border-radius: 15px;
+  width: 80%;
+}
+
+.piece-of-reply {
+  align-self: flex-end;
+  margin: 0;
+  margin-left: 2px;
+  margin-bottom: 2px;
+  padding: 16px;
+  background-color: $yellow-color;
+  border-radius: 15px;
+  width: 80%;
+}
+
+.reply-message-view {
+  height: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.reply-message-input {
+  width: 80%;
+}
+
+.reply-message-button {
+  height: 30px;
+  width: 80px;
+  background-color: $yellow-color;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  border-width: inherit;
+  cursor: pointer;
+}

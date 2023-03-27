@@ -1,0 +1,9 @@
+rootProject.name = 'lab1'
+include 'TeledonClient'
+include 'TeledonServer'
+include 'TeledonModel'
+include 'TeledonNetworking'
+include 'TeledonServices'
+include 'TeledonPersistence'
+include 'TeledonNetworkingProtobuf'
+

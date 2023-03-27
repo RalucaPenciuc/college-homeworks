@@ -1,0 +1,78 @@
+@import "./index.scss";
+
+[hidden] {
+  display: none;
+}
+
+.view-form-container {
+  width: 70%;
+  background-color: $static-menu-color;
+  border-radius: 15px;
+  padding: 15px;
+  flex-direction: column;
+}
+
+.view-form-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.view-form-title {
+  font-family: "$text-font-family";
+  text-align: center;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.post-images {
+  margin-bottom: 10px;
+}
+
+.post-infos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.post-infoss {
+  width: 150px;
+}
+
+.post-numbers {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-label {
+  font-family: "$text-font-family";
+  display: flex;
+  justify-content: space-between;
+  color: lightslategray;
+}
+
+.post-value {
+  margin: 0;
+  color: black;
+}
+
+.author-info {
+  text-align: center;
+}
+
+.message-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.send-message-button {
+  height: 30px;
+  width: 80px;
+  background-color: $yellow-color;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  border-width: inherit;
+  cursor: pointer;
+  align-self: flex-end;
+}

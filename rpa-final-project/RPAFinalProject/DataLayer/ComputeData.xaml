@@ -1,0 +1,132 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ComputeData" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_divisionDataTable" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="in_divisionName" Type="InArgument(x:String)" />
+    <x:Property Name="inOut_centralizatorIndex" Type="InOutArgument(x:Int32)" />
+    <x:Property Name="in_cuiName" Type="InArgument(x:String)" />
+    <x:Property Name="inOut_sheetIndex" Type="InOutArgument(x:Int32)" />
+    <x:Property Name="inOut_minMaxMedResult" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="in_divisionType" Type="InArgument(x:String)" />
+    <x:Property Name="inOut_medIndex" Type="InOutArgument(x:Int32)" />
+    <x:Property Name="inOut_medResult" Type="InOutArgument(sd:DataTable)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>376.8,964.8</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence DisplayName="ComputeData" sap:VirtualizedContainerService.HintSize="336.8,884.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="divisionResult" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Compute data for &quot; + in_divisionType + &quot;...&quot;]" />
+    <ui:FilterDataTable DataTable="[in_divisionDataTable]" DisplayName="Remove columns that contains String values" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="314.4,60" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[in_divisionDataTable]" SelectColumnsMode="Remove">
+      <ui:FilterDataTable.Filters>
+        <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+          <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="LT" />
+        </scg:List>
+      </ui:FilterDataTable.Filters>
+      <ui:FilterDataTable.SelectColumns>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <InArgument x:TypeArguments="x:String">["CUI"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["Departament"]</InArgument>
+          <InArgument x:TypeArguments="x:String">["Subdepartament"]</InArgument>
+        </scg:List>
+      </ui:FilterDataTable.SelectColumns>
+    </ui:FilterDataTable>
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="If divisionType.Equals(&quot;Departament&quot;) Then&#xD;&#xA;&#x9;MedResult = New Datatable()&#xD;&#xA;&#x9;MedResult.Columns.Add(New DataColumn(&quot;Name&quot;, Type.GetType(&quot;System.String&quot;)))&#xD;&#xA;&#x9;MedResult.Columns.Add(New DataColumn(&quot;Property&quot;, Type.GetType(&quot;System.String&quot;)))&#xD;&#xA;&#x9;MedResult.Rows.Add(divisionName, &quot;Med&quot;)&#xD;&#xA;End If&#xD;&#xA;&#xD;&#xA;MinMaxMedResult = New Datatable()&#xD;&#xA;MinMaxMedResult.Columns.Add(New DataColumn(&quot;Name&quot;, Type.GetType(&quot;System.String&quot;)))&#xD;&#xA;MinMaxMedResult.Columns.Add(New DataColumn(&quot;Property&quot;, Type.GetType(&quot;System.String&quot;)))&#xD;&#xA;MinMaxMedResult.Rows.Add(&quot;&quot;, &quot;Min&quot;)&#xD;&#xA;MinMaxMedResult.Rows.Add(divisionName, &quot;Med&quot;)&#xD;&#xA;MinMaxMedResult.Rows.Add(&quot;&quot;, &quot;Max&quot;)&#xD;&#xA;&#xD;&#xA;For Each column As DataColumn In input.Columns&#xD;&#xA;&#x9;MinMaxMedResult.Columns.Add(column.ColumnName)&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;If divisionType.Equals(&quot;Departament&quot;) Then&#xD;&#xA;&#x9;&#x9;MedResult.Columns.Add(New DataColumn(column.ColumnName, Type.GetType(&quot;System.Int32&quot;)))&#xD;&#xA;&#x9;End If&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;Dim minValue As String = (&#xD;&#xA;&#x9;&#x9;From row As DataRow In input.AsEnumerable() &#xD;&#xA;&#x9;&#x9;Where Double.TryParse(row(column.ColumnName).ToString, Nothing) &#xD;&#xA;&#x9;&#x9;Select row(column.ColumnName)).Min.ToString&#xD;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;Dim maxValue As String = (&#xD;&#xA;&#x9;&#x9;From row As DataRow In input.AsEnumerable() &#xD;&#xA;&#x9;&#x9;Where Double.TryParse(row(column.ColumnName).ToString, Nothing) &#xD;&#xA;&#x9;&#x9;Select row(column.ColumnName)).Max.ToString&#xD;&#xA;&#x9;&#x9;&#x9;&#xD;&#xA;&#x9;Dim avgValue As String = input.AsEnumerable().Average(Function(x) x.Field(Of Double)(column.ColumnName)).ToString&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;MinMaxMedResult.Rows(0)(column.ColumnName) = minValue&#xD;&#xA;&#x9;MinMaxMedResult.Rows(1)(column.ColumnName) = avgValue&#xD;&#xA;&#x9;MinMaxMedResult.Rows(2)(column.ColumnName) = maxValue&#xD;&#xA;&#x9;&#xD;&#xA;&#x9;If divisionType.Equals(&quot;Departament&quot;) Then&#xD;&#xA;&#x9;&#x9;MedResult.Rows(0)(column.ColumnName) = Convert.ToInt32(Convert.ToDouble(avgValue))&#xD;&#xA;&#x9;End If&#xD;&#xA;Next" DisplayName="Build DataTable with min, max and avg results" sap:VirtualizedContainerService.HintSize="314.4,164.8" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+      <ui:InvokeCode.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="input">[in_divisionDataTable]</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="MinMaxMedResult">[divisionResult]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="divisionName">[in_divisionName]</InArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="MedResult">[inOut_medResult]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="divisionType">[in_divisionType]</InArgument>
+      </ui:InvokeCode.Arguments>
+    </ui:InvokeCode>
+    <ui:MergeDataTable Destination="[inOut_minMaxMedResult]" DisplayName="Merge minMaxMed with DivisionResult" sap:VirtualizedContainerService.HintSize="314.4,22.4" sap2010:WorkflowViewState.IdRef="MergeDataTable_1" MissingSchemaAction="Add" Source="[divisionResult]" />
+    <Assign DisplayName="Increment index used for write range" sap:VirtualizedContainerService.HintSize="314.4,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[inOut_sheetIndex]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[inOut_sheetIndex + 3]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Increment index used for write range" sap:VirtualizedContainerService.HintSize="314.4,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[inOut_centralizatorIndex]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[inOut_centralizatorIndex + 3]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Increment index used for write range" sap:VirtualizedContainerService.HintSize="314.4,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[inOut_medIndex]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[inOut_medIndex + 1]</InArgument>
+      </Assign.Value>
+    </Assign>
+  </Sequence>
+</Activity>

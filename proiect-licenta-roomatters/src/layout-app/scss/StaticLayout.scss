@@ -1,0 +1,50 @@
+@import "./index.scss";
+
+.static-container {
+  height: 100%;
+  background-color: $background-color;
+}
+
+.static-menu {
+  height: 100%;
+  width: $static-menu-width;
+  background-color: $static-menu-color;
+  position: fixed;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.static-app-logo {
+  width: calc(#{$static-menu-width} - 20px);
+}
+
+.home-link {
+  height: calc(100% / 6);
+}
+
+.static-item-view {
+  height: calc(100% / 6);
+  width: inherit;
+}
+
+.static-button-overlay {
+  height: 100%;
+  width: 100%;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.static-button-overlay:hover {
+  .button-icon {
+    color: $black-color;
+  }
+}
+
+.static-button-icon {
+  font-size: 30px;
+  color: #3a3a3a;
+}

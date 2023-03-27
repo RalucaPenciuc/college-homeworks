@@ -1,0 +1,74 @@
+@import "./index.scss";
+
+.my-profile-container {
+  position: fixed;
+  top: 0;
+  height: 100%;
+  width: calc(100% - #{$static-menu-width});
+  display: flex;
+  justify-content: space-around;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  width: calc((1 / 4) * 100%);
+  align-items: center;
+}
+
+.user-info-content {
+  width: 70%;
+  background-color: $static-menu-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-profile-image {
+  height: 200px;
+  width: 200px;
+}
+
+.user-display-name {
+  font-size: 35px;
+  margin: 10px;
+  text-align: center;
+}
+
+.user-email {
+  margin: 10px;
+}
+
+.user-location {
+  margin: 10px;
+}
+
+.posts-menu {
+  width: 70%;
+  height: 10%;
+  background-color: $static-menu-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.posts-menu-item {
+  height: 60px;
+  width: 100%;
+  background-color: $static-menu-color;
+  letter-spacing: 1px;
+  border-width: inherit;
+}
+
+.posts-menu-item:hover {
+  background-color: $yellow-color;
+}
+
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  width: calc((3 / 4) * 100%);
+  align-items: center;
+  list-style: none;
+  overflow-y: scroll;
+}

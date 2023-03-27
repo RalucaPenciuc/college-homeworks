@@ -1,0 +1,62 @@
+syntax = "proto3";
+package teledon.protocol;
+
+option java_package = "teledon.network.protobufprotocol";
+option java_outer_classname = "TeledonProtobufs";
+
+message Voluntar {
+    string username = 1;
+    string password = 2;
+}
+
+message CazCaritabil {
+    string id = 1;
+    string totalSum = 2;
+}
+
+message Donator {
+    string name = 1;
+    string address = 2;
+    string phone = 3;
+}
+
+message Donatie {
+    string idCazCaritabil = 1;
+    string numeDonator = 2;
+    string adresaDonator = 3;
+    string telefonDonator = 4;
+    double sumaDonata = 5;
+}
+
+message TeledonRequest {
+    enum Type {
+        Unknown = 0;
+        Login = 1;
+        Logout = 2;
+        GetCazuriCaritabile = 3;
+        SearchDonatori = 4;
+        AddDonatie = 5;
+    }
+    Type type = 1;
+    oneof payload {
+        Voluntar user = 2;
+        Donatie donatie = 3;
+        Donator donator = 4;
+    }
+}
+
+message TeledonResponse {
+    enum Type {
+        Unknown = 0;
+        Ok = 1;
+        Error = 2;
+        GetCazuriCaritabile = 3;
+        GetDonatori = 4;
+        AddedDonatie = 5;
+
+    }
+    Type type = 1;
+    string error = 2;
+    repeated CazCaritabil cazuriCaritabile = 3;
+    repeated Donator donatori = 4;
+}

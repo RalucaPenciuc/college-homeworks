@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="467.0" prefWidth="867.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cazCaritabilWindowController">
+   <children>
+      <TextField fx:id="idCazCaritabil" layoutX="337.0" layoutY="161.0" />
+      <TextField fx:id="numeDonator" layoutX="337.0" layoutY="211.0" />
+      <TextField fx:id="adresaDonator" layoutX="337.0" layoutY="259.0" />
+      <TextField fx:id="telefonDonator" layoutX="337.0" layoutY="305.0" />
+      <TextField fx:id="sumaDonata" layoutX="337.0" layoutY="353.0" />
+      <Button fx:id="adaugaDonatieButton" layoutX="357.0" layoutY="409.0" mnemonicParsing="false" onAction="#addHandler" prefHeight="25.0" prefWidth="110.0" text="Adauga donatie" />
+      <Button fx:id="logoutButton" layoutX="14.0" layoutY="421.0" mnemonicParsing="false" onAction="#logoutHandler" prefHeight="25.0" prefWidth="67.0" text="Logout" />
+      <Label layoutX="239.0" layoutY="167.0" prefHeight="17.0" prefWidth="98.0" text="Caz caritabil" />
+      <Label layoutX="239.0" layoutY="217.0" prefHeight="17.0" prefWidth="98.0" text="Nume donator" />
+      <Label layoutX="239.0" layoutY="265.0" prefHeight="17.0" prefWidth="98.0" text="Adresa donator" />
+      <Label layoutX="239.0" layoutY="311.0" prefHeight="17.0" prefWidth="98.0" text="Telefon donator" />
+      <Label layoutX="239.0" layoutY="359.0" prefHeight="17.0" prefWidth="98.0" text="Suma donata" />
+      <Label layoutX="241.0" layoutY="44.0" prefHeight="17.0" prefWidth="98.0" text="Cauta donator" />
+      <TextField fx:id="searchNume" layoutX="339.0" layoutY="40.0" onAction="#searchHandler" />
+      <TableView fx:id="tableViewCaz" layoutX="14.0" layoutY="19.0" onMouseClicked="#clickedCazTable" prefHeight="354.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="idColumn" prefWidth="99.0" text="ID" />
+          <TableColumn fx:id="sumaColumn" prefWidth="100.0" text="SumaTotala" />
+        </columns>
+      </TableView>
+      <Button fx:id="cautaDonatorButton" layoutX="362.0" layoutY="89.0" mnemonicParsing="false" onAction="#searchHandler" prefHeight="25.0" prefWidth="98.0" text="Cauta donator" />
+      <TableView fx:id="tableViewDonator" layoutX="517.0" layoutY="22.0" onMouseClicked="#clickedDonatorTable" prefHeight="354.0" prefWidth="320.0">
+        <columns>
+          <TableColumn fx:id="idDColumn" prefWidth="55.0" text="IDD" />
+          <TableColumn fx:id="numeDColumn" prefWidth="82.0" text="Nume" />
+            <TableColumn fx:id="adresaDColumn" minWidth="0.0" prefWidth="84.0" text="Adresa" />
+            <TableColumn fx:id="telefonDColumn" prefWidth="97.0" text="Telefon" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

@@ -1,0 +1,198 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ComputeMinMaxMedResultFile" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_input" Type="InArgument(sd:DataTable)" />
+    <x:Property Name="inOut_centralizatorIndex" Type="InOutArgument(x:Int32)" />
+    <x:Property Name="inOut_centralizatorIndexCopy" Type="InOutArgument(x:Int32)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>376.8,2405.6</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Mail</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ComputeMinMaxMedResultFile" sap:VirtualizedContainerService.HintSize="336.8,2325.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="currentCUI" />
+      <Variable x:TypeArguments="x:Int32" Name="cuiSheetIndex" />
+      <Variable x:TypeArguments="sd:DataTable" Name="minMaxMedResult" />
+      <Variable x:TypeArguments="x:Int32" Name="cuiSheetIndexCopy" />
+      <Variable x:TypeArguments="sd:DataTable" Name="medResult" />
+      <Variable x:TypeArguments="x:Int32" Name="medIndex" />
+      <Variable x:TypeArguments="x:Int32" Name="medIndexCopy" />
+      <Variable x:TypeArguments="x:String" Name="text" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="314.4,92.8" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Compute MinMaxMed File...&quot; + inOut_centralizatorIndex.ToString]" />
+    <Assign DisplayName="Get current CUI name" sap:VirtualizedContainerService.HintSize="314.4,60" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">[currentCUI]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">[in_input.Rows(0).Item(0).ToString]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Initialize index used for write range" sap:VirtualizedContainerService.HintSize="314.4,60" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[cuiSheetIndex]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">1</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign copy" sap:VirtualizedContainerService.HintSize="314.4,60" sap2010:WorkflowViewState.IdRef="Assign_6">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[cuiSheetIndexCopy]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">1</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Initialize index used for write range" sap:VirtualizedContainerService.HintSize="314.4,60" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[medIndex]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">1</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Assign copy" sap:VirtualizedContainerService.HintSize="314.4,60" sap2010:WorkflowViewState.IdRef="Assign_10">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[medIndexCopy]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">1</InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:BuildDataTable DataTable="[minMaxMedResult]" DisplayName="Build data table for current CUI" sap:VirtualizedContainerService.HintSize="314.4,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Name&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Property&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;200&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;TARIFAR_x0020_INCADRARE&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;REALIZAT_x0020_SUPLIMENTAR&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ORE_x0020_DE_x0020_NOAPTE&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;SPOR_x0020_DE_x0020_NOAPTE&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PARTE_x0020_VARIABILA_x0020_NET&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_DETASARE_x0020_NET&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;NET_x0020_PRIMA_x0020_DE_x0020_POST_x0020_NET&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_DE_x0020_POST&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_DE_x0020_POST_x0020_BRUT&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_EXCEPTIONALA_x0020_NET&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_EXPATRIERE_x0020_NET&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_INTERIMAT_x0020_NET&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_MOBILITATE_x0020_NET&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_DETASARE_x0020_BRUT&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_OBISNUITA_x0020_NETA&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Regularizari_x0020_Net&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;BONUS&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_BRUTA_x0020_ONCALL&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_BRUTA_x0020_OVERTIME&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;BENEFICIU_x0020_IN_x0020_NATURA&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;BRUT_x0020_PT_x0020_IMPOZITARE&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;BAZA_x0020_CALCUL_x0020_SOMAJ_x0020_1&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;BAZA_x0020_CALCUL_x0020_CAS&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;BAZA_x0020_SANATATE&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;VENIT_x0020_NET_x0020_PT_x0020_IMPOZITARE&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;BAZA_x0020_PT_x0020_IMPOZITARE&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;BRUT_x0020_TICHETE_x0020_MASA&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;BRUT_x0020_TOTAL_x0020_TICHETE&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;NET&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;CONTRIBUTIE_x0020_SCHEMA_x0020_PENSII&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;BRUT_x0020_DIURNA_x0020_DELEGATIE&quot; type=&quot;xs:string&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke ComputeData For CUI" sap:VirtualizedContainerService.HintSize="314.4,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="DataLayer\ComputeData.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_divisionDataTable">[in_input]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_divisionName">[currentCUI]</InArgument>
+        <InOutArgument x:TypeArguments="x:Int32" x:Key="inOut_centralizatorIndex">[inOut_centralizatorIndexCopy]</InOutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_cuiName">[currentCUI]</InArgument>
+        <InOutArgument x:TypeArguments="x:Int32" x:Key="inOut_sheetIndex">[cuiSheetIndexCopy]</InOutArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="inOut_minMaxMedResult">[minMaxMedResult]</InOutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_medResult">[medResult]</OutArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_divisionType">CUI</InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:BuildDataTable DataTable="[medResult]" DisplayName="Build result table for Med output" sap:VirtualizedContainerService.HintSize="314.4,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_3" TableInfo="&lt;NewDataSet&gt;&#xD;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xD;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xD;&#xA;      &lt;xs:complexType&gt;&#xD;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xD;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xD;&#xA;            &lt;xs:complexType&gt;&#xD;&#xA;              &lt;xs:sequence&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Name&quot; type=&quot;xs:string&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Property&quot; minOccurs=&quot;0&quot;&gt;&#xD;&#xA;                  &lt;xs:simpleType&gt;&#xD;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xD;&#xA;                      &lt;xs:maxLength value=&quot;200&quot; /&gt;&#xD;&#xA;                    &lt;/xs:restriction&gt;&#xD;&#xA;                  &lt;/xs:simpleType&gt;&#xD;&#xA;                &lt;/xs:element&gt;&#xD;&#xA;                &lt;xs:element name=&quot;TARIFAR_x0020_INCADRARE&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;REALIZAT_x0020_SUPLIMENTAR&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;ORE_x0020_DE_x0020_NOAPTE&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;SPOR_x0020_DE_x0020_NOAPTE&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;PARTE_x0020_VARIABILA_x0020_NET&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_DETASARE_x0020_NET&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;NET_x0020_PRIMA_x0020_DE_x0020_POST_x0020_NET&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_DE_x0020_POST&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_DE_x0020_POST_x0020_BRUT&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_EXCEPTIONALA_x0020_NET&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_EXPATRIERE_x0020_NET&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_INTERIMAT_x0020_NET&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_MOBILITATE_x0020_NET&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_DETASARE_x0020_BRUT&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_OBISNUITA_x0020_NETA&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;Regularizari_x0020_Net&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;BONUS&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_BRUTA_x0020_ONCALL&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;PRIMA_x0020_BRUTA_x0020_OVERTIME&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;BENEFICIU_x0020_IN_x0020_NATURA&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;BRUT_x0020_PT_x0020_IMPOZITARE&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;BAZA_x0020_CALCUL_x0020_SOMAJ_x0020_1&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;BAZA_x0020_CALCUL_x0020_CAS&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;BAZA_x0020_SANATATE&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;VENIT_x0020_NET_x0020_PT_x0020_IMPOZITARE&quot; type=&quot;xs:int&quot; minOccurs=&quot;0&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;BAZA_x0020_PT_x0020_IMPOZITARE&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;BRUT_x0020_TICHETE_x0020_MASA&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;BRUT_x0020_TOTAL_x0020_TICHETE&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;NET&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;CONTRIBUTIE_x0020_SCHEMA_x0020_PENSII&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;                &lt;xs:element name=&quot;BRUT_x0020_DIURNA_x0020_DELEGATIE&quot; type=&quot;xs:int&quot; /&gt;&#xD;&#xA;              &lt;/xs:sequence&gt;&#xD;&#xA;            &lt;/xs:complexType&gt;&#xD;&#xA;          &lt;/xs:element&gt;&#xD;&#xA;        &lt;/xs:choice&gt;&#xD;&#xA;      &lt;/xs:complexType&gt;&#xD;&#xA;    &lt;/xs:element&gt;&#xD;&#xA;  &lt;/xs:schema&gt;&#xD;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DivisionMinMaxMed For Departments" sap:VirtualizedContainerService.HintSize="314.4,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DataLayer\DivisionMinMaxMed.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_inputCuiDataTable">[in_input]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_divisionType">Departament</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_cuiName">[currentCUI]</InArgument>
+        <InOutArgument x:TypeArguments="x:Int32" x:Key="inOut_cuiSheetIndex">[cuiSheetIndexCopy]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:Int32" x:Key="inOut_centralizatorIndex">[inOut_centralizatorIndexCopy]</InOutArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="inOut_minMaxMedResult">[minMaxMedResult]</InOutArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="inOut_medResult">[medResult]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:Int32" x:Key="inOut_medIndex">[medIndexCopy]</InOutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:WriteRange AddHeaders="False" DataTable="[medResult]" DisplayName="Write to medResult Sheet" sap:VirtualizedContainerService.HintSize="314.4,116" sap2010:WorkflowViewState.IdRef="WriteRange_4" SheetName="[&quot;Comp&quot; + currentCUI.ToString]" StartingCell="[&quot;A&quot; + medIndex.ToString]" WorkbookPath="Data\Output\Output_DepartamentMed.xlsx" />
+    <ui:FilterDataTable DataTable="[medResult]" DisplayName="Filter Data Table" FilterRowsMode="Remove" sap:VirtualizedContainerService.HintSize="314.4,60" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[medResult]" SelectColumnsMode="Remove">
+      <ui:FilterDataTable.Filters>
+        <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+          <ui:FilterOperationArgument Column="{x:Null}" Operand="{x:Null}" BooleanOperator="And" Operator="EQ" />
+        </scg:List>
+      </ui:FilterDataTable.Filters>
+      <ui:FilterDataTable.SelectColumns>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <InArgument x:TypeArguments="x:String">["Property"]</InArgument>
+        </scg:List>
+      </ui:FilterDataTable.SelectColumns>
+    </ui:FilterDataTable>
+    <ui:WriteRange AddHeaders="True" DataTable="[medResult]" DisplayName="Write to chartsResult Sheet" sap:VirtualizedContainerService.HintSize="314.4,116" sap2010:WorkflowViewState.IdRef="WriteRange_5" SheetName="[&quot;Comp&quot; + currentCUI.ToString]" StartingCell="[&quot;A&quot; + medIndex.ToString]" WorkbookPath="Data\Output\Output_Charts.xlsx" />
+    <ui:InvokeWorkflowFile ContinueOnError="{x:Null}" DisplayName="Invoke DivisionMinMaxMed For Subdepartments" sap:VirtualizedContainerService.HintSize="314.4,88" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="DataLayer\DivisionMinMaxMed.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="in_inputCuiDataTable">[in_input]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_divisionType">Subdepartament</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_cuiName">[currentCUI]</InArgument>
+        <InOutArgument x:TypeArguments="x:Int32" x:Key="inOut_cuiSheetIndex">[cuiSheetIndexCopy]</InOutArgument>
+        <InOutArgument x:TypeArguments="x:Int32" x:Key="inOut_centralizatorIndex">[inOut_centralizatorIndexCopy]</InOutArgument>
+        <InOutArgument x:TypeArguments="sd:DataTable" x:Key="inOut_minMaxMedResult">[minMaxMedResult]</InOutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable" x:Key="out_medResult">[medResult]</OutArgument>
+        <InOutArgument x:TypeArguments="x:Int32" x:Key="inOut_medIndex">[medIndexCopy]</InOutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:WriteRange AddHeaders="False" DataTable="[minMaxMedResult]" DisplayName="Write to Companii Sheet" sap:VirtualizedContainerService.HintSize="314.4,116" sap2010:WorkflowViewState.IdRef="WriteRange_1" SheetName="[&quot;Comp&quot; + currentCUI.ToString]" StartingCell="[&quot;A&quot; + cuiSheetIndex.ToString]" WorkbookPath="Data\Output\Output_MinMaxMed.xlsx" />
+    <ui:WriteRange AddHeaders="False" DataTable="[minMaxMedResult]" DisplayName="Write to Centralizator sheet" sap:VirtualizedContainerService.HintSize="314.4,116" sap2010:WorkflowViewState.IdRef="WriteRange_2" SheetName="Centralizator" StartingCell="[&quot;A&quot; + inOut_centralizatorIndex.ToString]" WorkbookPath="Data\Output\Output_MinMaxMed.xlsx" />
+    <Assign sap:VirtualizedContainerService.HintSize="314.4,60" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[cuiSheetIndex]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[cuiSheetIndexCopy]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="314.4,60" sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[inOut_centralizatorIndex]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[inOut_centralizatorIndexCopy]</InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign sap:VirtualizedContainerService.HintSize="314.4,60" sap2010:WorkflowViewState.IdRef="Assign_11">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">[medIndex]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">[medIndexCopy]</InArgument>
+      </Assign.Value>
+    </Assign>
+  </Sequence>
+</Activity>

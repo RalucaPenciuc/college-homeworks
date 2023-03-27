@@ -1,0 +1,4 @@
+1;ana;221
+2;maria;221
+3;vasile;223
+4;doru;226

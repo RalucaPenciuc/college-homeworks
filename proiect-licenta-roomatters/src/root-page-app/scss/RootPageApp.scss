@@ -1,0 +1,99 @@
+@import "./index.scss";
+
+.home-image {
+  height: 100%;
+  width: 100%;
+  background-image: url("../../../public/assets/images/start-page.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.start-point {
+  height: 100%;
+  position: absolute;
+  right: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-text {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  flex-grow: 1;
+}
+
+.home-page-title {
+  height: 40px;
+  display: flex;
+}
+
+.title-section1 {
+  color: $black-color;
+  font-family: $title-font-family;
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.title-section2 {
+  color: $yellow-color;
+  font-family: $title-font-family;
+  font-size: 26px;
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+.description-section {
+  height: 50px;
+  color: $black-color;
+  font-family: $text-font-family;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.page-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.register-button {
+  height: 60px;
+  width: 160px;
+  background-color: $yellow-color;
+  letter-spacing: 5px;
+  border-radius: 5px;
+  border-width: inherit;
+}
+
+.register-button-caption {
+  font-family: $text-font-family;
+  font-size: 15px;
+  color: white;
+}
+
+.login-link {
+  color: $black-color;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  color: $yellow-color;
+}
+
+.start-page-app-logo {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  top: 0;
+  left: 20px;
+}

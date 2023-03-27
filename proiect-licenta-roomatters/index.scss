@@ -1,0 +1,29 @@
+$font-path: "/public/assets/fonts" !default;
+
+@font-face {
+  font-family: "Roboto";
+  src: url("#{$font-path}/roboto-regular.ttf");
+}
+
+html, body {
+  margin: 0;
+  overflow: hidden;
+}
+
+
+$title-font-family: "Tahoma";
+$text-font-family: "Roboto";
+
+$static-menu-width: 100px;
+
+$black-color: rgba(18, 18, 18, 1);
+$yellow-color: rgba(228, 195, 98, 1);
+
+$background-color: rgba(233, 233, 233, 1);
+$static-menu-color: rgba(227, 221, 204, 1);
+
+// $normal-button-width: 
+// $normal-button-height:
+
+// $small-button-width: 
+// $small-button-height:

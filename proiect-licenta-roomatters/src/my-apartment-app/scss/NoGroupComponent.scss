@@ -1,0 +1,82 @@
+@import "./index.scss";
+
+.no-group-page-container {
+  width: 100%;
+  margin-left: 30px;
+  margin-right: 60px;
+}
+
+.no-group-page-title {
+  font-family: $text-font-family;
+  font-size: 30px;
+  text-align: center;
+}
+
+.no-group-page-content {
+  height: calc(100% - 90px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+.no-group-page-actions {
+  height: 80%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.create-group-view {
+  background-color: $static-menu-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+  margin-bottom: 20px;
+  justify-content: space-around;
+  border-radius: 15px;
+}
+
+.no-group-subtitle {
+  font-family: $text-font-family;
+  font-size: 20px;
+}
+
+.create-group-input {
+  width: 200px;
+}
+
+.no-group-action-button {
+  height: 40px;
+  width: 150px;
+  background-color: $yellow-color;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  border-width: inherit;
+  cursor: pointer;
+}
+
+.search-group-view {
+  background-color: $static-menu-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 3;
+  justify-content: space-evenly;
+  border-radius: 15px;
+}
+
+.search-group-input {
+  width: 200px;
+}
+
+.invite-requests-view {
+  min-height: 150px;
+  min-width: 400px;
+  background-color: $static-menu-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+}

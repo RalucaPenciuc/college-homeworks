@@ -1,0 +1,27 @@
+Sub Main(ByRef in_pdfPath As String)
+    Dim ws As Worksheet
+    For Each ws In ActiveWorkbook.Worksheets
+        ws.Activate
+       
+        Dim rng As Range
+        Dim cht As ChartObject
+       
+        Set rng = ActiveSheet.UsedRange
+        Set cht = ActiveSheet.ChartObjects.Add( _
+        Left:=ActiveCell.Left, _
+        Width:=450, _
+        Top:=ActiveCell.Top, _
+        Height:=300)
+        cht.Chart.SetSourceData Source:=rng
+        cht.Chart.ChartType = xlXYScatter
+        cht.Chart.HasTitle = True
+        cht.Chart.ChartTitle.Text = ws.Name & vbCrLf & "Mediana Departamente"
+        cht.Select
+        cht.Activate
+        cht.Chart.Axes(xlCategory, xlPrimary).HasTitle = True
+        cht.Chart.Axes(xlCategory, xlPrimary).AxisTitle.Characters.Text = "Category"
+        cht.Chart.Axes(xlValue, xlPrimary).HasTitle = True
+        cht.Chart.Axes(xlValue, xlPrimary).AxisTitle.Characters.Text = "Ron"
+        cht.Chart.ExportAsFixedFormat Type:=xlTypePDF, Filename:=in_pdfPath & "\" & ws.Name & ".pdf"
+    Next   
+End Sub

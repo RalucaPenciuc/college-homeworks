@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="teledon.model.CazCaritabil" table="CazuriCaritabile">
+        <id name="ID" column="ID">
+            <generator class="increment"/>
+        </id>
+        <property name="totalSum" column="suma_totala"/>
+    </class>
+</hibernate-mapping>

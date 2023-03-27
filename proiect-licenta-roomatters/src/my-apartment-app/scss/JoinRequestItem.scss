@@ -1,0 +1,46 @@
+@import "./index.scss";
+
+.join-request-item {
+  margin-top: 20px;
+}
+
+.join-request-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.join-sender-profile-image {
+  height: 70px;
+  width: 70px;
+}
+
+.join-request-message {
+  font-family: "$text-font-family";
+  text-align: center;
+}
+
+.join-request-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.reject-join-request-button {
+  height: 30px;
+  width: 80px;
+  background-color: #ed5a5a;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  border-width: inherit;
+  cursor: pointer;
+}
+
+.accept-join-request-button {
+  height: 30px;
+  width: 80px;
+  background-color: $yellow-color;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  border-width: inherit;
+  cursor: pointer;
+}

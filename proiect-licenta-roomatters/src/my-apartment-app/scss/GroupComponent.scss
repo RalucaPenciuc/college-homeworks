@@ -1,0 +1,140 @@
+@import "./index.scss";
+
+.group-page-container {
+  width: 100%;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.group-page-title {
+  font-family: "$text-font-family";
+  font-size: 30px;
+}
+
+.group-page-content {
+  height: calc(100% - 100px);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.left-menu-area {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.create-post-area {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $static-menu-color;
+  border-radius: 15px;
+}
+
+.post-content-input {
+  width: 90%;
+}
+
+.create-post-button {
+  height: 50px;
+  width: 120px;
+  background-color: $yellow-color;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  border-width: inherit;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.posts-list-area {
+  width: 500px;  
+  overflow-y: scroll;
+}
+
+.side-menu-area {
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.search-user-view {
+  height: 200px;  
+  width: 100%;
+  background-color: $static-menu-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.search-user-field {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.search-user-button {
+  height: 30px;
+  width: 80px;
+  background-color: $yellow-color;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  border-width: inherit;
+  cursor: pointer;
+}
+
+.members-view {
+  min-height: 260px;
+  width: 100%;
+  background-color: $static-menu-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.members-view-content {
+  height: 90%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.group-page-subtitle {
+  font-family: "$text-font-family";
+}
+
+.join-requests-view {
+  min-height: 150px;  
+  width: 100%;
+  background-color: $static-menu-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.leave-group-view {
+  position: fixed;
+  top: 30px;
+  right: 130px;
+}
+
+.leave-group-button {
+  height: 50px;
+  width: 120px;
+  background-color: #ed5a5a;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  border-width: inherit;
+  cursor: pointer;
+}

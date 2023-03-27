@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="dialect">org.hibernate.dialect.SQLiteDialect</property>
+        <property name="connection.driver_class">org.sqlite.JDBC</property>
+        <property name="connection.url">jdbc:sqlite:D:/Documente/sem4/MPP/TemeProiect/tema5/lab1/Teledon.db</property>
+
+        <!--<property name="hibernate.hbm2ddl.auto">update</property>-->
+
+        <property name="show_sql">true</property>
+        <property name="format_sql">true</property>
+
+        <mapping resource="/teledon.model/Voluntar.hbm.xml"/>
+        <mapping class="teledon.model.Voluntar"/>
+    </session-factory>
+</hibernate-configuration>

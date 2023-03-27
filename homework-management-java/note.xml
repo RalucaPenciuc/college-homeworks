@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Entitati>
+    <nota ID_Student="4" ID_Tema="8">
+        <Nota>4.0</Nota>
+        <SaptamanaPredare>12</SaptamanaPredare>
+        <Feedback>Nota a fost diminuata cu 5.0 puncte datorita intarzierilor!</Feedback>
+    </nota>
+    <nota ID_Student="3" ID_Tema="8">
+        <Nota>4.0</Nota>
+        <SaptamanaPredare>12</SaptamanaPredare>
+        <Feedback>Nota a fost diminuata cu 5.0 puncte datorita intarzierilor!</Feedback>
+    </nota>
+    <nota ID_Student="3" ID_Tema="9">
+        <Nota>8.0</Nota>
+        <SaptamanaPredare>12</SaptamanaPredare>
+        <Feedback/>
+    </nota>
+    <nota ID_Student="1" ID_Tema="8">
+        <Nota>3.0</Nota>
+        <SaptamanaPredare>12</SaptamanaPredare>
+        <Feedback>Nota a fost diminuata cu 5.0 puncte datorita intarzierilor!</Feedback>
+    </nota>
+    <nota ID_Student="1" ID_Tema="9">
+        <Nota>10.0</Nota>
+        <SaptamanaPredare>12</SaptamanaPredare>
+        <Feedback/>
+    </nota>
+</Entitati>

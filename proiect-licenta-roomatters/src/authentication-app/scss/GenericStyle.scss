@@ -1,0 +1,85 @@
+@import "./index.scss";
+
+.auth-page-container {
+  height: 100%;
+  width: 100%;
+  background-color: $background-color;
+  display: flex;
+  align-items: center;
+}
+
+.auth-page-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.auth-app-logo {
+  height: 390px;
+  width: 50%;
+  object-fit: contain;
+}
+
+.auth-form {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-input-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-grow: 1;
+}
+
+.auth-input-field,
+.error-message {
+  width: 60%;
+}
+
+.auth-error-message {
+  color: red;
+  text-align: center;
+}
+
+.auth-page-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.auth-button {
+  height: 60px;
+  width: 160px;
+  background-color: $yellow-color;
+  letter-spacing: 5px;
+  border-radius: 5px;
+  border-width: inherit;
+}
+
+.auth-button-caption {
+  font-family: $text-font-family;
+  font-size: 15px;
+  color: white;
+}
+
+.other-auth-link {
+  color: $black-color;
+  text-decoration: none;
+}
+
+.other-auth-link:hover {
+  color: $yellow-color;
+}
+
+.auth-input-field
+  > .MuiInputBase-adornedEnd
+  > .MuiInputAdornment-positionEnd
+  > .MuiIconButton-root {
+  padding: 0;
+  color: $black-color;
+}

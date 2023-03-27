@@ -1,0 +1,139 @@
+@import "./index.scss";
+
+[hidden] {
+  display: none;
+}
+
+.form-container {
+  width: 70%;
+  background-color: $static-menu-color;
+  border-radius: 15px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-title {
+  font-family: "$text-font-family";
+  margin: 0;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.select-type-area {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-type-area {
+  display: flex;
+  align-items: center;
+}
+
+.rent-type-area {
+  display: flex;
+  align-items: center;
+}
+
+.select-location-area {
+  display: flex;
+  align-items: center;
+}
+
+.short-fields-area {
+  display: flex;
+  align-items: center;
+}
+
+.input-fields-area {
+  flex-grow: 1;
+}
+
+.price-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.short-numbers-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-helper {
+  font-family: "$text-font-family";
+  margin: 0;
+  margin-right: 5px;
+  color: lightslategray;
+}
+
+.add-form-input-field {
+  width: 50px;
+  flex-grow: 1;
+}
+
+.description-field {
+  width: 100%;
+}
+
+.phone-area {
+  display: flex;
+}
+
+.PhoneInput {
+  flex-grow: 1;
+}
+
+.upload-files-area {
+  display: flex;
+}
+
+.upload-files {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.add-form-actions {
+  align-self: flex-end;
+}
+
+.create-button {
+  height: 40px;
+  width: 100px;
+  background-color: $yellow-color;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  border-width: inherit;
+  cursor: pointer;
+}
+
+.cancel-button {
+  height: 40px;
+  width: 100px;
+  background-color:#ed5a5a;
+  letter-spacing: 1px;
+  border-radius: 5px;
+  border-width: inherit;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+
+.MuiOutlinedInput-input {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+}
+
+.filepond--item {
+  width: calc(35% - .5em);
+}
+
+.filepond--root {
+  max-height: 150px;
+}
